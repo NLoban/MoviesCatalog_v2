@@ -1,1 +1,53 @@
-<h1>My First Angular 2 App hgf1fgd23</h1>
+<head>
+  <title>Movies Catalog</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Movies catalog</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{'MOVIES'}} <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a routerLink="/movie/popular">{{'POPULAR'}}</a></li>
+              <li><a routerLink="/movie/top_rated">{{'TOP_RATED'}}</a></li>
+              <li><a routerLink="/movie/upcoming">{{'UPCOMING'}}</a></li>
+              <li><a routerLink="/movie/now_playing">{{'NOW_PLAYING'}}</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{'TV_SHOWS'}} <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a routerLink="/tv/popular">{{'POPULAR'}}</a></li>
+              <li><a routerLink="/tv/top_rated">{{'TOP_RATED'}}</a></li>
+              <li><a routerLink="/tv/on_the_air">{{'ON_TV'}}</a></li>
+              <li><a routerLink="/tv/airing_today">{{'AIRING_TODAY'}}</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-model="selectedLanguage">{{'LANGUAGE'}}: <strong></strong> <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="" ng-click="$mainCtrl.changeLanguage('en')">English</a></li>
+              <li><a href="" ng-click="$mainCtrl.changeLanguage('ru')">Русский</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <router-outlet></router-outlet>
+  <!--<footer class="bs-docs-footer">
+    <div class="container">
+      <p>Movies Catalog</p>
+    </div>
+  </footer>-->
+</body>

@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div>
+                <img class="movie-img" src="https://image.tmdb.org/t/p/w500{{data.poster_path}}" alt="...">
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <h1 nf-if="data.name != underfined">{{data.name}}</h1>
+            <h1 nf-if="data.title != underfined">{{data.title}}</h1>
+            <h3>{{'OVERVIEW'}}</h3>
+            <p>{{data.overview}}</p>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>{{'PRODUCTION_COUNTRIES'}}</th>
+                        <td><span class="badge" ng-repeat="country in data.production_countries">{{country.name}}</span></td>
+                    </tr>
+                    <tr>
+                        <th>{{'PRODUCTION_COMPANIES'}}</th>
+                        <td><span class="badge" ng-repeat="company in data.production_companies">{{company.name}}</span></td>
+                    </tr>
+                    <tr>
+                        <th>{{'FILM_LANGUAGES'}}</th>
+                        <td><span class="badge">{{data.original_language}}</span></td>
+                    </tr>
+                    <tr>
+                        <th>{{'DURATION'}}</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>{{'GENRES'}}</th>
+                        <td><span class="badge" ng-repeat="genre in data.genres">{{genre.name}}</span></td>
+                    </tr>
+                    <tr>
+                        <th>{{'HOMEPAGE'}}</th>
+                        <td><a href="{{data.homepage}}">{{data.homepage}}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <h2>{{'MEDIA'}}</h2>
+
+    <ngb-tabset class="media" active="activeJustified" justified="true">
+        <ngb-tab index="0" title="{{'BACKDROPS'}}">
+            <div uib-carousel active="active" no-wrap="noWrapSlides">
+                <div class="mediacontent" uib-slide *ngFor="let image of images.backdrops; trackBy: i" index="index">
+                    <img src="https://image.tmdb.org/t/p/w600{{image.file_path}}" style="margin:auto;">
+                    <div class="carousel-caption"></div>
+                </div>
+            </div>
+        </ngb-tab>
+        <ngb-tab index="1" title="{{'POSTERS'}}">
+            <div uib-carousel active="active" no-wrap="noWrapSlides">
+                <div class="mediacontent" uib-slide *ngFor="let image of images.posters; trackBy: i" index="$index">
+                    <img src="https://image.tmdb.org/t/p/w600{{image.file_path}}" style="margin:auto;">
+                    <div class="carousel-caption"></div>
+                </div>
+            </div>
+        </ngb-tab>
+        <ngb-tab index="2" title="{{'VIDEO'}}">
+            <div class="mediacontent" uib-carousel active="active" no-wrap="noWrapSlides">
+                <div uib-slide ng-repeat="let video for videos; trackBy: i" index="$index">
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <!--<iframe class="embed-responsive-item video" src="{{video.key | youtubeEmbedUrl}}"></iframe>-->
+                        <iframe class="embed-responsive-item video" src="{{video.key}}"></iframe>
+                    </div>
+                </div>
+            </div>
+        </ngb-tab>
+    </ngb-tabset>
+    <!--<div ng-repeat="video in videos track by $index" index="$index">
+        <a href="https://www.youtube.com/watch?v={{video.key}}">{{video.key}}</a>
+    </div>-->
+    <!--<div ng-repeat="video in videos track by $index" index="$index">
+        {{$index}}
+        <div class="embed-responsive embed-responsive-4by3">
+            <iframe class="embed-responsive-item" ng-src="https://www.youtube.com/watch?v={{video.key}}"></iframe>
+        </div>
+    </div>-->
+    <!--Title: {{data | json:4}}-->
+
+</div>
