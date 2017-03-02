@@ -9,14 +9,14 @@
     <div class="row">
         <div class="col-md-4" *ngFor="let movie of movies">
             <div class="thumbnail movie">
-                <a href="/{{type}}/details/{{movie.id}}"><img class="movie-img" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="..."></a>
+                <a routerLink="/{{type}}/details/{{movie.id}}"><img class="movie-img" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="..."></a>
                 <div class="caption">
-                    <a href="/{{type}}/details/{{movie.id}}">
+                    <a routerLink="/{{type}}/details/{{movie.id}}">
                         <h3 *ngIf="movie.name != underfined">{{movie.name}}</h3>
                         <h3 *ngIf="movie.title != underfined">{{movie.title}}</h3>
                     </a>
                     <p>{{movie.overview }}{{movie.overview.length > 150 ? '...' : ''}}</p>
-                    <p class=""><a href="/{{type}}/details/{{movie.id}}" class="btn btn-primary" role="button">{{'MORE'}}</a></p>
+                    <p class=""><a routerLink="/{{type}}/details/{{movie.id}}" class="btn btn-primary" role="button">{{'MORE'}}</a></p>
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@ import { MovieDetailsComponent } from './movie.details.component';
 import { MoviesComponent } from './movies.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -27,8 +27,9 @@ const appRoutes: Routes = [
 
 @NgModule({
     imports: [RouterModule.forRoot(appRoutes), BrowserModule, HttpModule,
-        JsonpModule, NgbModule.forRoot()],
+        JsonpModule, NgbModule.forRoot(),],
     declarations: [AppComponent, HomeComponent, MoviesComponent, MovieDetailsComponent],
+    exports: [RouterModule],
     bootstrap: [AppComponent],
     providers: [UrlService]
 })

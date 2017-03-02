@@ -1,0 +1,28 @@
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+
+.movie {
+  height: 500px; 
+}
+
+.thumbnail .movie-img {
+  height: 300px; 
+}
+
+.movie-img{
+  height: 500px; 
+}
+
+.bs-docs-footer {
+  padding-top: 10px;
+  margin-top: 100px;
+  color: #99979c;
+  text-align: center;
+  background-color: #e7e7e7;
+}
+
+.media .mediacontent img {
+  height: 500px;
+}
