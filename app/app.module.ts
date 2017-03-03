@@ -1,3 +1,4 @@
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { UrlService } from './url.service';
 import { HomeComponent } from './home.component';
 import { AppComponent } from './app.component';
@@ -26,12 +27,12 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(appRoutes), BrowserModule, HttpModule,
+    imports: [BrowserModule, RouterModule.forRoot(appRoutes), HttpModule,
         JsonpModule, NgbModule.forRoot(),],
     declarations: [AppComponent, HomeComponent, MoviesComponent, MovieDetailsComponent],
     exports: [RouterModule],
     bootstrap: [AppComponent],
-    providers: [UrlService]
+    providers: [UrlService, { provide: LocationStrategy, useClass: HashLocationStrategy }]
 })
 
 export class AppModule { }

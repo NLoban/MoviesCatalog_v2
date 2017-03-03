@@ -15,12 +15,15 @@ export class MoviesComponent implements OnInit {
     category: string;
 
     constructor(private route: ActivatedRoute, private router: Router, private dataService: DataService) {
-        this.type = route.snapshot.params['type'];
-        this.category = route.snapshot.params['category'];
     }
-    
+
     ngOnInit() {
-        this.dataService.getMoviesList(this.type, this.category)
-        .subscribe(result => { this.movies = result; });
+        this.route.params.subscribe(params => {
+            this.type = params['type'];
+            this.category = params['category'];
+
+            this.dataService.getMoviesList(this.type, this.category)
+                .subscribe(result => { this.movies = result; })
+        });
     }
 }
